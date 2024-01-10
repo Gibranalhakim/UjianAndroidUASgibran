@@ -1,11 +1,10 @@
 package com.example.ujianandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
@@ -27,15 +26,15 @@ public class ListActivity extends AppCompatActivity {
                 // Mengekstrak nomor urut, nama depan, nama belakang, dan usia
                 String[] parts = nama.split("\\. ");
                 int index = Integer.parseInt(parts[0]);
-                String[] nameAndAge = parts[1].split(", Usia: ");
+                String[] nameAndAge = parts[1].split(" - Status: ");
                 String name = nameAndAge[0];
-                String age = nameAndAge[1];
+                String status = nameAndAge[1];
 
-                // Menampilkan nama depan, nama belakang, dan usia dalam format yang diinginkan
+                // Menampilkan nama depan, nama belakang, dan status dalam format yang diinginkan
                 String[] nameParts = name.split(" ");
                 if (nameParts.length >= 2) {
                     String namaLengkap = nameParts[0] + " " + nameParts[1];
-                    filteredList.add(index + ". " + namaLengkap + ", Usia: " + age);
+                    filteredList.add(index + ". " + namaLengkap + " - Status: " + status);
                 }
             }
         }
